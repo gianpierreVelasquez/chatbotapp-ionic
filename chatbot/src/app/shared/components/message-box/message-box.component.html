@@ -1,0 +1,26 @@
+<ion-row *ngFor="let m of messages">
+  <ion-col *ngIf="currentUser === m.user" size="9">
+    <ion-card class="bot-message">
+      <ion-card-content>
+        <p><b>UniBot</b></p>
+        <span>{{ m.message }}</span>
+        <div class="time ion-text-end">
+          {{ m.time | date:'shortTime' }}
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </ion-col>
+
+  <ion-col *ngIf="currentUser !== m.user" offset="3" size="9">
+    <ion-card class="user-message">
+      <ion-card-content>
+        <p><b>Tú</b></p>
+        <span>{{ m.message }}</span>
+        <div class="time ion-text-end">
+          {{ m.time | date:'shortTime' }}
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </ion-col>
+
+</ion-row>

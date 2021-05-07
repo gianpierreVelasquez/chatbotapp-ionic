@@ -1,0 +1,26 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar size="small" color="primary">
+    <ion-title>Asitente virtual</ion-title>
+    <ion-title> de postulación </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content #content class="ion-no-padding">
+
+  <ion-card class="custom-card">
+    <ion-card-content class="ion-no-padding">
+      <app-message [messages]="messageList"></app-message>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <span *ngIf="loading" class="writing-text"> {{ text }} </span>
+  <ion-item class="custom-item" lines="none">
+    <ion-textarea type="text" rows="1" placeholder="Escribe un mensaje aquí..." [(ngModel)]="message"></ion-textarea>
+    <ion-button fill="clear" [disabled]="!message || loading" (click)="sendMessage()">
+      <ion-icon slot="icon-only" name="send"></ion-icon>
+    </ion-button>
+  </ion-item>
+</ion-footer>
